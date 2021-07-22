@@ -13,7 +13,7 @@
 {% block content %}
     <section id="welcome">
         <header>
-            <img src="{% static 'blog/images/alireza.jpg' %}" alt="Alireza - The Auther of This Blog">
+            <img src="{% static 'blog/images/alireza.jpg' %}" alt="Alireza - The Author of This Blog">
             <h2>Alireza's Blog</h2>
         </header>
         <p>Hi! I'm Alireza and I love to blog about tech and and the world!</p>
@@ -22,7 +22,9 @@
     <section id="latest-posts">
         <h2>My Latest Thoughts</h2>
         <ul>
-            {% include 'blog/includes/post.html' %}
+            {% for post in latest_posts %}
+                {% include 'blog/includes/post.html' %}
+            {% endfor %}
         </ul>
     </section>
 

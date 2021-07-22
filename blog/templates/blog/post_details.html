@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block page_title %}
-    This Post Title
+    {{ post.title|title }}
 {% endblock %}
 
 {% block css_files %}
@@ -11,36 +11,17 @@
 
 {% block content %}
     <section id="summary">
-        <h2>Post Title</h2>
+        <h2>{{ post.title|title }}</h2>
         <article>
-            <img src="{% static 'blog/images/mountains.jpg' %}" alt="Post Title">
-            <address>By Alireza</address>
+            <img src="{% static 'blog/images/'|add:post.image %}" alt="{{ post.title }}">
+            <address>By {{ post.author }}</address>
             <div>
-                Last updated on <time>July 10th</time>
+                Last updated on <time>{{ post.date|date:"D d M Y" }}</time>
             </div>
         </article>
     </section>
 
     <main>
-        <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Libero reprehenderit doloribus ab asperiores dolores fugit obcaecati veritatis,
-            porro quidem. Consequuntur ipsa rerum vero optio cumque dolor et quas aut ratione.
-        </p>
-        <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.Dolorem ex molestiae,
-            ullam pariatur nemo accusantium laboriosam dolores dignissimos eos deleniti
-            a corporis libero harum vel voluptatem quos! Placeat, eveniet repellat.
-        </p>
-        <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Libero reprehenderit doloribus ab asperiores dolores fugit obcaecati veritatis,
-            porro quidem. Consequuntur ipsa rerum vero optio cumque dolor et quas aut ratione.
-        </p>
-        <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.Dolorem ex molestiae,
-            ullam pariatur nemo accusantium laboriosam dolores dignissimos eos deleniti
-            a corporis libero harum vel voluptatem quos! Placeat, eveniet repellat.
-        </p>
+        <p>{{ post.content|linebreaks }}</p>
     </main>
 {% endblock  %}
