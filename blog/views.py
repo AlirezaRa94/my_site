@@ -11,4 +11,4 @@ def posts(request):
 
 
 def post_details(request, post_name):
-    pass
+    return render(request, 'blog/post_details.html')

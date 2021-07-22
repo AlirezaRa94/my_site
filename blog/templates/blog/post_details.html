@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+    This Post Title
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'blog/post_details.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section id="summary">
+        <h2>Post Title</h2>
+        <article>
+            <img src="{% static 'blog/images/mountains.jpg' %}" alt="Post Title">
+            <address>By Alireza</address>
+            <div>
+                Last updated on <time>July 10th</time>
+            </div>
+        </article>
+    </section>
+
+    <main>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Libero reprehenderit doloribus ab asperiores dolores fugit obcaecati veritatis,
+            porro quidem. Consequuntur ipsa rerum vero optio cumque dolor et quas aut ratione.
+        </p>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.Dolorem ex molestiae,
+            ullam pariatur nemo accusantium laboriosam dolores dignissimos eos deleniti
+            a corporis libero harum vel voluptatem quos! Placeat, eveniet repellat.
+        </p>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Libero reprehenderit doloribus ab asperiores dolores fugit obcaecati veritatis,
+            porro quidem. Consequuntur ipsa rerum vero optio cumque dolor et quas aut ratione.
+        </p>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.Dolorem ex molestiae,
+            ullam pariatur nemo accusantium laboriosam dolores dignissimos eos deleniti
+            a corporis libero harum vel voluptatem quos! Placeat, eveniet repellat.
+        </p>
+    </main>
+{% endblock  %}
