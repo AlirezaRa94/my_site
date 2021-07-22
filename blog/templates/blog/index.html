@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+    My Blog
+{% endblock  %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'blog/index.css' %}">
+{% endblock  %}
+
+{% block content %}
+    <header id="main-navigation">
+        <h1><a href="">Alireza' Blog</a></h1>
+        <nav>
+            <a href="">All Posts</a>
+        </nav>
+    </header>
+
+    <section id="welcome">
+        <header>
+            <img src="" alt="Alireza - The Auther of This Blog">
+            <h2>Alireza's Blog</h2>
+        </header>
+        <p>Hi! I'm Alireza and I love to blog about tech and and the world!</p>
+    </section>
+
+    <section id="latest-posts">
+        <h2>My Latest Thoughts</h2>
+        <ul>
+            <li>
+                <article class="post">
+                    <a href="">
+                        <img src="" alt="Mountain Hiking">
+                        <div class="post__content">
+                            <h3>Mountain Hiking</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Quis placeat voluptatum nulla ducimus, nemo officiis maxime minus,
+                                blanditiis est, eos beatae reprehenderit perspiciatis aliquam excepturi
+                                facilis esse consequuntur modi accusamus.
+                            </p>
+                        </div>
+                    </a>
+                </article>
+            </li>
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>What I Do</h2>
+        <p>
+            I love programming, I love to help others and I enjoy exploring new technologies in general!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Labore dicta officia magni tempora doloremque, eveniet quas eos enim necessitatibus sint perferendis,
+            consectetur asperiores iure vero non nulla velit! Veritatis, enim.
+        </p>
+    </section>
+{% endblock  %}

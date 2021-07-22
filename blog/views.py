@@ -3,7 +3,7 @@ from django.urls.conf import path
 
 
 def starting_page(request):
-    pass
+    return render(request, "blog/index.html")
 
 
 def posts(request):
