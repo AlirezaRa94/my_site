@@ -1,6 +1,8 @@
 from datetime import date
+from django.http.response import HttpResponseNotFound
 
 from django.shortcuts import render
+from django.template.loader import render_to_string
 
 
 all_posts = [
@@ -91,7 +93,11 @@ def posts(request):
 
 
 def post_details(request, slug):
-    identified_post = next(post for post in all_posts if post['slug'] == slug)
-    return render(request, 'blog/post_details.html', {
-        "post": identified_post
-    })
+    try:
+        identified_post = next(post for post in all_posts if post['slug'] == slug)
+        return render(request, 'blog/post_details.html', {
+            "post": identified_post
+        })
+    except StopIteration:
+        response_data = render_to_string('404.html')
+        return HttpResponseNotFound(response_data)
