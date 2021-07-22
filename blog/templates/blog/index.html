@@ -6,17 +6,11 @@
 {% endblock  %}
 
 {% block css_files %}
+    <link rel="stylesheet" href="{% static 'blog/post.css' %}">
     <link rel="stylesheet" href="{% static 'blog/index.css' %}">
 {% endblock  %}
 
 {% block content %}
-    <header id="main-navigation">
-        <h1><a href="">Alireza' Blog</a></h1>
-        <nav>
-            <a href="">All Posts</a>
-        </nav>
-    </header>
-
     <section id="welcome">
         <header>
             <img src="{% static 'blog/images/alireza.jpg' %}" alt="Alireza - The Auther of This Blog">
@@ -28,22 +22,7 @@
     <section id="latest-posts">
         <h2>My Latest Thoughts</h2>
         <ul>
-            <li>
-                <article class="post">
-                    <a href="">
-                        <img src="{% static 'blog/images/mountains.jpg' %}" alt="Mountain Hiking">
-                        <div class="post__content">
-                            <h3>Mountain Hiking</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Quis placeat voluptatum nulla ducimus, nemo officiis maxime minus,
-                                blanditiis est, eos beatae reprehenderit perspiciatis aliquam excepturi
-                                facilis esse consequuntur modi accusamus.
-                            </p>
-                        </div>
-                    </a>
-                </article>
-            </li>
+            {% include 'blog/includes/post.html' %}
         </ul>
     </section>
 
