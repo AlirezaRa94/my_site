@@ -29,27 +29,30 @@ class PostListView(ListView):
 class PostDetailView(View):
     template_name = 'blog/post_details.html'
 
-    def get(self, request, slug):
-        post = Post.objects.get(slug=slug)
+    @staticmethod
+    def render_post_details(request, post, comment_form):
+        comments = post.comments.all().order_by('-id')
+        tags = post.tags.all()
         context = {
             'post': post,
-            'post_tags': post.tags.all(),
-            'comment_form': CommentForm()
+            'post_tags': tags,
+            'comment_form': comment_form,
+            'comments': comments
         }
         return render(request, 'blog/post_details.html', context)
 
-    def post(self, request, slug):
-        comment_form = CommentForm(request.POST)
+    def get(self, request, slug):
         post = Post.objects.get(slug=slug)
+        comment_form = CommentForm()
+        return self.render_post_details(request, post, comment_form)
+
+    def post(self, request, slug):
+        post = Post.objects.get(slug=slug)
+        comment_form = CommentForm(request.POST)
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
             return HttpResponseRedirect(reverse("post-details-page", args=[slug]))
 
-        context = {
-            'post': post,
-            'post_tags': post.tags.all(),
-            'comment_form': comment_form
-        }
-        return render(request, 'blog/post_details.html', context)
+        return self.render_post_details(request, post, comment_form)
