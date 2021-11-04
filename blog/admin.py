@@ -9,6 +9,12 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ('author', 'tags', 'date')
 
 
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('first_name', 'last_name', 'post')
+    list_filter = ('post',)
+
+
 admin.site.register(models.Post, PostAdmin)
 admin.site.register(models.Author)
 admin.site.register(models.Tag)
+admin.site.register(models.Comment, CommentAdmin)
