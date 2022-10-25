@@ -1,4 +1,4 @@
-# my_site
+# Blog Website
 Source code of the project of Maximilian Schwarzmüller's course on Udemy:
 
 [Django - The Practical Guide](https://www.udemy.com/course/python-django-the-practical-guide/)
