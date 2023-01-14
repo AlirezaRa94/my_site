@@ -1,2 +1,5 @@
-Django>=3.2.4,<3.3
-Pillow>=9.3.0,<9.4
+asgiref==3.6.0
+Django==3.2.16
+Pillow==9.3.0
+pytz==2022.7
+sqlparse==0.4.3
